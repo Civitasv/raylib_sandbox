@@ -7,8 +7,12 @@
 #include <algorithm>
 #include <vector>
 
-#include "point.h"
 #include "raylib.h"
+
+struct Point {
+  int x;
+  int y;
+};
 
 struct Voronoi {
 private:
@@ -117,10 +121,8 @@ public:
 
     int count = 0;
 
-    if (
-        step == 0 ||
-        (need_noise && round_when_applied_noise == round_needed_when_applied_noise + 1)
-    ) {
+    if (step == 0 || (need_noise && round_when_applied_noise ==
+                                        round_needed_when_applied_noise + 1)) {
       Initialize();
       return;
     }

@@ -1,11 +1,11 @@
-#include "sandbox.h"
-#include "voronoi.h"
+#include "standalone/voronoi.h"
 
-#define WINDOW_WIDTH  800
+#define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 450
 
 void ForVoronoi() {
-  static Voronoi voronoi(WINDOW_WIDTH, WINDOW_HEIGHT); // define as a single instance
+  static Voronoi voronoi(WINDOW_WIDTH,
+                         WINDOW_HEIGHT); // define as a single instance
 
   { // Event handle
     if (IsKeyPressed(KEY_SPACE)) {
@@ -21,8 +21,7 @@ void ForVoronoi() {
   }
 }
 
-int main()
-{
+int main() {
   InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Raylib Sandbox");
 
   SetTargetFPS(60); // Set our game to run at 60 frames-per-second
