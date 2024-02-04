@@ -1,5 +1,8 @@
 #pragma once
 
-#include "ecs/component.h"
+struct KeyInputComponent {
+  int key_down;
 
-struct KeyInputComponent : Component {};
+  KeyInputComponent() = default;
+  KeyInputComponent(const KeyInputComponent&) = default;
+};

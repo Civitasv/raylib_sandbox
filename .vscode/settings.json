@@ -1,0 +1,11 @@
+{
+    "[cpp]": {
+        "editor.rulers": [
+            80
+        ],
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+        "editor.useTabStops": true,
+        "editor.defaultFormatter": "xaver.clang-format",
+    },
+}

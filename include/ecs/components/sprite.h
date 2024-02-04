@@ -1,19 +1,25 @@
 #pragma once
 
-#include "ecs/component.h"
 #include "raylib.h"
 #include <iostream>
 
-struct SpriteComponent : public Component {
+struct SpriteComponent {
   Rectangle src;
   Rectangle dst;
   Texture2D texture;
 
-  SpriteComponent() {}
+  SpriteComponent() = default;
+  SpriteComponent(const SpriteComponent &) = default;
 
   SpriteComponent(const Rectangle &src, const Rectangle &dst,
-                  const Texture2D &texture)
-      : src(src), dst(dst), texture(texture) {}
+                  const char *texture_path)
+      : src(src), dst(dst) {
+    std::cout << "Load texture: " << texture_path << '\n';
+    texture = LoadTexture(texture_path);
+  }
 
-  ~SpriteComponent() { std::cout << "Unload" << '\n'; UnloadTexture(texture); }
+  ~SpriteComponent() {
+    std::cout << "Unload" << '\n';
+    UnloadTexture(texture);
+  }
 };

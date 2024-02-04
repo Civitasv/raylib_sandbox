@@ -1,15 +1,12 @@
 #pragma once
 
-#include "ecs/entity.h"
-#include "ecs/registry.h"
-#include "ecs/system.h"
 #include "ecs/systems/movement.h"
 #include "ecs/systems/sprite.h"
 #include "ecs/systems/transform.h"
 #include "raylib.h"
 #include <cstddef>
-#include <unordered_map>
-#include <vector>
+
+#include "entt/entt.hpp"
 
 struct World {
   void Update() {
@@ -47,5 +44,6 @@ struct World {
   SpriteSystem sprite_system;
   TransformSystem transform_system;
   MovementSystem movement_system;
-  Registry registry;
+
+  entt::registry registry;
 };

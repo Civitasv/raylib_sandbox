@@ -1,29 +1,25 @@
 #pragma once
 
 #include "ecs/components/sprite.h"
-#include "ecs/entity.h"
-#include "ecs/registry.h"
+#include "ecs/components/transform.h"
 #include "ecs/system.h"
+#include "entt/entity/fwd.hpp"
 #include "raylib.h"
-#include <iostream>
+
+#include "entt/entt.hpp"
 
 struct SpriteSystem : System {
-  virtual void Update(Registry &registry) override {
-    for (int e = 1; e <= NumberOfEntity(); e++) {
-      if (registry.sprites.count(e) != 0 && registry.transforms.count(e) != 0) {
-        registry.sprites[e].dst.x = registry.transforms[e].pos_x;
-        registry.sprites[e].dst.y = registry.transforms[e].pos_y;
-      }
-    }
+  virtual void Update(entt::registry &registry) override {
+    registry.view<const TransformComponent, SpriteComponent>().each(
+        [](const auto &transform, auto &sprite) {
+          sprite.dst.x = transform.pos_x;
+          sprite.dst.y = transform.pos_y;
+        });
   }
 
-  virtual void Render(Registry &registry) override {
-    for (int e = 1; e <= NumberOfEntity(); e++) {
-      if (registry.sprites.count(e) != 0) {
-        SpriteComponent& component = registry.sprites[e];
-        DrawTexturePro(component.texture, component.src, component.dst, {0, 0},
-                       0, WHITE);
-      }
-    }
+  virtual void Render(entt::registry &registry) override {
+    registry.view<const SpriteComponent>().each([](const auto &sprite) {
+      DrawTexturePro(sprite.texture, sprite.src, sprite.dst, {0, 0}, 0, WHITE);
+    });
   }
 };

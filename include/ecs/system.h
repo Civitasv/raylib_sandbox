@@ -1,11 +1,9 @@
 #pragma once
 
-/// System represents calcute logic, only function, no variable.
-#include "ecs/entity.h"
-#include "ecs/registry.h"
-#include <vector>
+#include "entt/entt.hpp"
 
+/// System represents calcute logic, only function, no variable.
 struct System {
-  virtual void Update(Registry &registry) {}
-  virtual void Render(Registry& registry) {}
+  virtual void Update(entt::registry &registry) {}
+  virtual void Render(entt::registry &registry) {}
 };

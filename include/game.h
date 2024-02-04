@@ -1,3 +1,5 @@
 #pragma once
 
-#include "raylib.h"
+#define WINDOW_WIDTH 800
+#define WINDOW_HEIGHT 450
+
