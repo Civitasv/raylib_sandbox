@@ -19,7 +19,7 @@ Showcase:
 
 ## ECS Implementation
 
-See 36c685632e007085cad866b913df076d29e1992c.
+See [36c685](https://github.com/Civitasv/raylib_sandbox/tree/36c685632e007085cad866b913df076d29e1992c).
 
 The ECS design is really like database, which is mostly used in game development.
 
@@ -37,7 +37,7 @@ You can use W/A/S/D to move the bird.
 
 ## ECS Implementation (using entt)
 
-See
+See [b72bdf](https://github.com/Civitasv/raylib_sandbox/tree/b72bdf01528f2155550f84e74e8dd00701161fa1).
 
 Useful links:
 
