@@ -2,6 +2,7 @@
 #include "ecs/components/keyinput.h"
 #include "ecs/components/sprite.h"
 #include "ecs/components/transform.h"
+#include "ecs/entity.h"
 #include "ecs/world.h"
 
 #include "raylib.h"
@@ -12,13 +13,13 @@
 
 int main() {
   World world(WINDOW_WIDTH, WINDOW_HEIGHT);
-  const auto bird = world.registry.create();
+  Entity bird = world.CreateEntity();
 
-  world.registry.emplace<SpriteComponent>(bird, Rectangle{0, 0, 300, 230},
-                                          Rectangle{10, 10, 100, 73},
-                                          "assets/sprites/bird.png");
-  world.registry.emplace<TransformComponent>(bird, 10.0f, 10.0f, 0.0f, 0.0f);
-  world.registry.emplace<KeyInputComponent>(bird);
+  bird.AddComponent<SpriteComponent>(Rectangle{0, 0, 300, 230},
+                                     Rectangle{10, 10, 100, 73},
+                                     "assets/sprites/bird.png");
+  bird.AddComponent<TransformComponent>(10.0f, 10.0f, 0.0f, 0.0f);
+  bird.AddComponent<KeyInputComponent>();
 
   while (!WindowShouldClose()) {
     world.Update();

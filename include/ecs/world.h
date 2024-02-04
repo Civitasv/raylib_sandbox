@@ -8,6 +8,7 @@
 
 #include "entt/entt.hpp"
 
+struct Entity;
 struct World {
   void Update() {
     sprite_system.Update(registry);
@@ -23,6 +24,8 @@ struct World {
 
     EndDrawing();
   }
+
+  Entity CreateEntity();
 
   World(std::size_t width, std::size_t height) : width(width), height(height) {
     InitWindow(width, height, "Raylib Sandbox");

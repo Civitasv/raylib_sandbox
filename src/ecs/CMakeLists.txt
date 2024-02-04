@@ -1,0 +1,1 @@
+target_sources(game PUBLIC world.cc)

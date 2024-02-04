@@ -11,3 +11,5 @@ add_custom_command(
   ${CMAKE_SOURCE_DIR}/assets/
   ${CMAKE_SOURCE_DIR}/bin/assets/
 )
+
+add_subdirectory(ecs)
