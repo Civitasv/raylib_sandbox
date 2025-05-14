@@ -42,3 +42,7 @@ See [b72bdf](https://github.com/Civitasv/raylib_sandbox/tree/b72bdf01528f2155550
 Useful links:
 
 - [Crash Course: entity-component system](https://github.com/skypjack/entt/blob/master/docs/md/entity.md#introduction)
+
+## Rope simulation
+
+Implementation: [rope.h](./include/standalone/rope.h)
