@@ -1,9 +1,10 @@
 #pragma once
 
+#include "ecs/component.h"
 #include "raylib.h"
 #include <iostream>
 
-struct SpriteComponent {
+struct SpriteComponent: public Component {
   Rectangle src;
   Rectangle dst;
   Texture2D texture;
