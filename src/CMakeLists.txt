@@ -1,7 +1,8 @@
 add_executable(game game.cc)
 target_include_directories(game PUBLIC
     ${CMAKE_SOURCE_DIR}/include
-    ${CAKE_RAYLIB_DIRECTORY}/include)
+    ${CAKE_RAYLIB_DIRECTORY}/include
+    ${CAKE_LUA_DIRECTORY})
 target_link_libraries(game PUBLIC ${CAKE_RAYLIB_DIRECTORY}/lib/libraylib.dylib EnTT::EnTT)
 
 # after build game, please copy the assets dir to bin dir
